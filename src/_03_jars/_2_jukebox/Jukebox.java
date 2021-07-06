@@ -12,7 +12,11 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -26,7 +30,17 @@ public class Jukebox implements Runnable {
 
 		// 1. Find an mp3 on your computer or on the Internet.
 		// 2. Create a Song object for that mp3
-
+    	Song thriller = new Song("Thriller");
+    	Song imagine = new Song("Imagine");
+    	Song bohemianRhapsody = new Song("Bohemian Rhapsody");
+    	Song despacito = new Song("Despacito");
+    	Song thinkingOutLoud = new Song("Thinking Out Loud");
+    	Song hereComesTheSun = new Song("Here Comes The Sun");
+    	Song whenDovesCry = new Song("When Doves Cry");
+    	Song sorry = new Song("Sorry");
+    	Song uptownFunk = new Song("Uptown Funk");
+    	Song holiday = new Song("Holiday");
+    	
 		// 3. Play the Song
 
 		/*
@@ -36,6 +50,11 @@ public class Jukebox implements Runnable {
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
+    	JFrame frame = new JFrame();
+    	JPanel panel = new JPanel();
+    	frame.add(panel);
+    	JButton thrillerButton = new JButton();
+    	panel.add
     }
     
     
@@ -70,12 +89,13 @@ class Song {
 	}
 
 	public void play() {
-		loadFile();
-		if (songStream != null) {
-			loadPlayer();
-			startSong();
-		} else
-			System.err.println("Unable to load file: " + songAddress);
+//		loadFile();
+//		if (songStream != null) {
+//			loadPlayer();
+//			startSong();
+//		} else
+//			System.err.println("Unable to load file: " + songAddress);
+		JOptionPane.showMessageDialog(null, songAddress);
 	}
 
 	public void setDuration(int seconds) {
