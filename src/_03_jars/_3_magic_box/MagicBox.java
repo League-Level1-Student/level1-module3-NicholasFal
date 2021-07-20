@@ -57,6 +57,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.addMouseListener(this);
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -76,6 +77,22 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		System.out.println(e.getX());
+		System.out.println(e.getY());
+		int mouseX = e.getX();
+		int mouseY = e.getY();
+		if(mouseX < 304 && mouseX > 273 && mouseY > 289 && mouseY < 411) {
+			loadImageFromTheInternet(https://en.wikipedia.org/wiki/Waterfall#/media/File:Salto_del_Angel-Canaima-Venezuela08.JPG);
+			System.out.println("Worked");
+		} else {
+		if(mouseX < 210 && mouseX > 187 && mouseY > 540 && mouseY < 580) {
+			System.out.println("worked again");
+		} else {
+			if(mouseX > 307 && mouseX < 363 && mouseY > 617 && mouseY < 680) {
+				System.out.println("yay");
+			}
+		}
+		}
 		
 	}
 

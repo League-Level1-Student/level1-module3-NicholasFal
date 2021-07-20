@@ -5,6 +5,8 @@ package _03_jars._2_jukebox;
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -24,7 +26,8 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /*   If you don't have javazoom.jar in your project, you can download it from here: http://bit.ly/javazoom
  *   Right click your project and add it as a JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
+public class Jukebox implements Runnable, ActionListener {
+	Song songPlaying;
 
     public void run() {
 
@@ -54,7 +57,48 @@ public class Jukebox implements Runnable {
     	JPanel panel = new JPanel();
     	frame.add(panel);
     	JButton thrillerButton = new JButton();
-    	panel.add
+    	panel.add(thrillerButton);
+    	thrillerButton.setText("Thriller");
+    	thrillerButton.addActionListener(this);
+    	JButton imagineButton = new JButton();
+    	panel.add(imagineButton);
+    	imagineButton.setText("Imagine");
+    	imagineButton.addActionListener(this);
+    	JButton bohemianRhapsodyButton = new JButton();
+    	panel.add(bohemianRhapsodyButton);
+    	bohemianRhapsodyButton.setText("Bohemian Rhapsody");
+    	bohemianRhapsodyButton.addActionListener(this);
+    	JButton despacitoButton = new JButton();
+    	panel.add(despacitoButton);
+    	despacitoButton.setText("Despacito");
+    	despacitoButton.addActionListener(this);
+    	JButton thinkingOutLoudButton = new JButton();
+    	panel.add(thinkingOutLoudButton);
+    	thinkingOutLoudButton.setText("Thinking Out Loud");
+    	thinkingOutLoudButton.addActionListener(this);
+    	JButton hereComesTheSunButton = new JButton();
+    	panel.add(hereComesTheSunButton);
+    	hereComesTheSunButton.setText("Here Comes The Sun");
+    	hereComesTheSunButton.addActionListener(this);
+    	JButton whenDovesCryButton = new JButton();
+    	panel.add(whenDovesCryButton);
+    	whenDovesCryButton.setText("When Doves Cry");
+    	whenDovesCryButton.addActionListener(this);
+    	JButton sorryButton = new JButton();
+    	panel.add(sorryButton);
+    	sorryButton.setText("Sorry");
+    	sorryButton.addActionListener(this);
+    	JButton uptownFunkButton = new JButton();
+    	panel.add(uptownFunkButton);
+    	uptownFunkButton.setText("Uptown Funk");
+    	uptownFunkButton.addActionListener(this);
+    	JButton holidayButton = new JButton();
+    	panel.add(holidayButton);
+    	holidayButton.setText("Holiday");
+    	holidayButton.addActionListener(this);
+    	frame.pack();
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setVisible(true);
     }
     
     
@@ -63,6 +107,19 @@ public class Jukebox implements Runnable {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		// TODO Auto-generated method stub
+		JButton clicked = (JButton) event.getSource();
+		if(songPlaying != null) {
+			songPlaying.stop();
+		}
+		songPlaying = new Song(clicked.getText());
+		
+		songPlaying.play();
 	}
 
 }
