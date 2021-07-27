@@ -12,9 +12,11 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -36,9 +38,19 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 *   
 	 *     
 	 */
-
+	MediaPalace picture = new MediaPalace();
 	BufferedImage backgroundImage;
-
+	JFrame frame = new JFrame();
+	JFrame frameTwo = new JFrame();
+	JFrame frameThree = new JFrame();
+	JLabel label;
+	JLabel hoodie;
+	JLabel behindTheDoors;
+	JPanel panel = new JPanel();
+	JPanel panelTwo = new JPanel();
+	JPanel panelThree = new JPanel();
+	int added = 0;
+	int addedTwo = 0;
 
 	@Override
 	public void run() {
@@ -82,14 +94,49 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		int mouseX = e.getX();
 		int mouseY = e.getY();
 		if(mouseX < 304 && mouseX > 273 && mouseY > 289 && mouseY < 411) {
-			loadImageFromTheInternet(https://en.wikipedia.org/wiki/Waterfall#/media/File:Salto_del_Angel-Canaima-Venezuela08.JPG);
+			try {
+				label = picture.loadImageFromTheInternet("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG");
+			frame.add(panel);
+			panel.add(label);
+			frame.setVisible(true);
+			frame.pack();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println("Worked");
 		} else {
 		if(mouseX < 210 && mouseX > 187 && mouseY > 540 && mouseY < 580) {
 			System.out.println("worked again");
+			try {
+				hoodie = picture.loadImageFromTheInternet("https://i.pinimg.com/736x/2d/1c/c2/2d1cc2c80acb545d5b7995ae7ba4443f.jpg");
+				frameTwo.add(panelTwo);
+				if(added == 0) {
+				panelTwo.add(hoodie);
+				}
+				frameTwo.setVisible(true);
+				frameTwo.pack();
+				added++;
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else {
 			if(mouseX > 307 && mouseX < 363 && mouseY > 617 && mouseY < 680) {
 				System.out.println("yay");
+				try {
+					behindTheDoors = picture.loadImageFromTheInternet("https://www.pngitem.com/pimgs/m/65-653190_treasure-chest-png-transparent-treasure-chest-clipart-png.png");
+				frameThree.add(panelThree);
+				if(addedTwo == 0) {
+					panelThree.add(behindTheDoors);
+				}
+				frameThree.setVisible(true);
+				frameThree.pack();
+				addedTwo++;
+				} catch (MalformedURLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		}
 		}

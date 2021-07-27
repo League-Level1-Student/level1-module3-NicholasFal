@@ -27,7 +27,6 @@ public class MediaPalace {
 	 *    Right click the project and add it as a JAR (Under Java Build Path > Libraries).
 	 */     
 	
-	
 	public JLabel loadImageFromTheInternet(String imageURL) throws MalformedURLException {
 		URL url = new URL(imageURL);
 		Icon icon = new ImageIcon(url);
