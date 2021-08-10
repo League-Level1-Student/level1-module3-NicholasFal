@@ -30,11 +30,56 @@ public static void main(String[] args) {
 	Flower betterFlower = new Flower();
 	Location betterFlowerLocation = new Location(randomBugLocationX, randomBugLocationY + 1);
 	betterFlower.setColor(Color.yellow);
-	world.add(flowerLocation, flower);
-	world.add(betterFlowerLocation, betterFlower);
-	for(int flowers = 0; flowers < 96; flowers++) {
-		Flower flowerExtra = new Flower();
+	//world.add(flowerLocation, flower);
+	//world.add(betterFlowerLocation, betterFlower);
+//	for(int flowers = 0; flowers < 96; flowers++) {
+//		Flower flowerExtra = new Flower();
+//		if(flowers < 10) {
+//		Location flowerExtraLocation = new Location(flowers, 0);
+//		world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 19) {
+//			Location flowerExtraLocation = new Location(flowers - 9, 1);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 28) {
+//			Location flowerExtraLocation = new Location(flowers - 18, 2);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 37) {
+//			Location flowerExtraLocation = new Location(flowers - 27, 3);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 46) {
+//			Location flowerExtraLocation = new Location(flowers - 36, 4);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 55) {
+//			Location flowerExtraLocation = new Location(flowers - 45, 5);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 64) {
+//			Location flowerExtraLocation = new Location(flowers - 54, 6);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 73) {
+//			Location flowerExtraLocation = new Location(flowers - 63, 6);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 82) {
+//			Location flowerExtraLocation = new Location(flowers - 72, 7);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 91) {
+//			Location flowerExtraLocation = new Location(flowers - 81, 8);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		} else if(flowers < 100) {
+//			Location flowerExtraLocation = new Location(flowers - 90, 9);
+//			world.add(flowerExtraLocation, flowerExtra);
+//		}
+for(int row = 0; row < 10; row++) {
+	for(int column = 0; column < 10; column++) {
+		Location loc = new Location(row, column);
+		Flower newFlower = new Flower();
+		world.add(loc, newFlower);
+		if(row % 2 == 0) {
+			newFlower.setColor(Color.red);
+		} else {
+			newFlower.setColor(Color.white);
+		}
 		
 	}
+}
 }
 }
